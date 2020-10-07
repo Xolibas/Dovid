@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Buy";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Замовлення квитка</title>
+</head>
+<body>
+    <div>
+        <h3>Оформлення квитка</h3>
+        <form method="post" action="">
+            <input type="hidden" value="@ViewBag.ProductId" name="TrainId" />
+            <table>
+                <tr>
+                    <td><p>Введіть своє ім’я: </p></td>
+                    <td><input type="text" name="Name" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Введіть своє прізвище: </p></td>
+                    <td><input type="text" name="SName" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Введіть свою адресу:</p></td>
+                    <td>
+                        <input type="text" name="Adress" />
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Замовити" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
+
