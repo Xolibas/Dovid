@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Dovid.Models.Train
+<h2>Видалення потягу</h2>
+<dl>
+    <dt>Початкова позиція</dt>
+    <dd>
+        @Html.DisplayFor(model => model.SPos)
+    </dd>
+
+    <dt>Кінцева позиція</dt>
+    <dd>
+        @Html.DisplayFor(model => model.FPos)
+    </dd>
+
+    <dt>Час прибуття</dt>
+    <dd>
+        @Html.DisplayFor(model => model.STime)
+    </dd>
+
+    <dt>Час від’їзду</dt>
+    <dd>
+        @Html.DisplayFor(model => model.FTime)
+    </dd>
+
+    <dt>Кількість вагонів</dt>
+    <dd>
+        @Html.DisplayFor(model => model.VCount)
+    </dd>
+
+    <dt>Ціна</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}

@@ -1,0 +1,57 @@
+﻿@model Dovid.Models.Train
+@{ ViewBag.Title = "Додавання потягу";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Додавання потягу</title>
+</head>
+<body>
+    <div id="content">
+        <Form method="post" action="">
+            <Table>
+                <Tr>
+                    <td> <p> Введіть початкову станцію: </p> </td>
+                    <Td> @Html.EditorFor(model => model.SPos) </Td>
+                </Tr>
+                <Tr>
+                    <td> <p> Введіть кінцеву станцію: </p> </td>
+                    <td>
+                        @Html.EditorFor(model => model.FPos)
+                    </td>
+                </Tr>
+                <Tr>
+                    <td> <p> Введіть час прибуття: </p> </td>
+                    <td>
+                        @Html.EditorFor(model => model.STime)
+                    </td>
+                </Tr>
+                <Tr>
+                    <td> <p> Введіть час від’їзду: </p> </td>
+                    <td>
+                        @Html.EditorFor(model => model.FTime)
+                    </td>
+                </Tr>
+                <Tr>
+                    <td> <p> Введіть кількість вагонів: </p> </td>
+                    <td>
+                        @Html.EditorFor(model => model.VCount)
+                    </td>
+                </Tr>
+                <Tr>
+                    <td> <p> Введіть ціну: </p> </td>
+                    <td>
+                        @Html.EditorFor(model => model.Price)
+                    </td>
+                </Tr>
+                <Tr>
+                    <td> <input type="submit" value="Додати" onclick="add()" /> </td>
+                </Tr>
+            </Table>
+        </Form>
+    </div>
+</body>
+</html>

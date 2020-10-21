@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Редагування інформації про потяг";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Dovid.Models.Train
+<h2>Потяг № @Model.Id</h2>
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    <p>
+        @Html.LabelFor(m => m.SPos, "Звідки")
+        <br />
+        @Html.EditorFor(m => m.SPos)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.FPos, "Куди")
+        <br />
+        @Html.EditorFor(m => m.FPos)
+
+    </p>
+    <p>
+        @Html.LabelFor(m => m.STime, "Час прибуття")
+        <br />
+        @Html.EditorFor(m => m.STime)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.FTime, "Час від’їзду")
+        <br />
+        @Html.EditorFor(m => m.FTime)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.VCount, "Кількість вагонів")
+        <br />
+        @Html.EditorFor(m => m.VCount)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Price, "Ціна")
+        <br />
+        @Html.EditorFor(m => m.Price)
+    </p>
+    <p><input type="submit" value="Відредагувати" /></p>
+</fieldset>
+}

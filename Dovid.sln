@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dovid", "Dovid\Dovid.csproj", "{75031DDF-2C8C-475F-94CC-5EE16946AD7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dovid.Tests", "Dovid.Tests\Dovid.Tests.csproj", "{B8CEF79C-7979-49E8-A7A5-0A6BFB32CA64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75031DDF-2C8C-475F-94CC-5EE16946AD7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75031DDF-2C8C-475F-94CC-5EE16946AD7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75031DDF-2C8C-475F-94CC-5EE16946AD7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75031DDF-2C8C-475F-94CC-5EE16946AD7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8CEF79C-7979-49E8-A7A5-0A6BFB32CA64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8CEF79C-7979-49E8-A7A5-0A6BFB32CA64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8CEF79C-7979-49E8-A7A5-0A6BFB32CA64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8CEF79C-7979-49E8-A7A5-0A6BFB32CA64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB612A84-B2B3-44D9-95DE-6F2CF989146D}
+	EndGlobalSection
+EndGlobal

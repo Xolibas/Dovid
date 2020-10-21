@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Диспетчерське бюро</title>
+</head>
+<body>
+    <div>
+        <h3>Розклад потягів</h3>
+        <table>
+            <tr>
+                <td><p>Номер потягу</p></td>
+                <td><p>Час прибуття</p></td>
+                <td><p>Час від’їзду</p></td>
+                <td><p>Початкова позиція</p></td>
+                <td><p>Кінцева позиція</p></td>
+                <td><p>Кількість вагонів</p></td>
+                <td><p>Ціна квитка</p></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            @foreach (var t in ViewBag.Trains)
+            {
+        <tr>
+            <td><p>@t.Id</p></td>
+            <td><p>@t.STime</p></td>
+            <td><p>@t.FTime</p></td>
+            <td><p>@t.SPos</p></td>
+            <td><p>@t.FPos</p></td>
+            <td><p>@t.VCount</p></td>
+            <td><p>@t.Price</p></td>
+            <td><p><a href="/Ticket/Buy/@t.Id">Замовити квиток</a></p></td>
+            <td><p><a href="/Home/Edit/@t.Id">Редагувати</a></p></td>
+            <td><p><a href="/Home/Delete/@t.Id">Видалити</a></p></td>
+        </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+
+
