@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Редагування інформації про станцію";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Dovid.Models
+@model Station
+<h2>Станція № @Model.Id</h2>
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.Name, "Назва")
+            <br />
+            @Html.EditorFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Oblast, "Область")
+            <br />
+            @Html.EditorFor(m => m.Oblast)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Trains, "Потяги")
+            <br />
+            @{
+                List<Train> trains = ViewBag.Trains;
+                foreach (Train t in trains)
+                {
+                    <input type="checkbox" name="selectedTrains" value="@t.Id"
+                           @(Model.Trains.Contains(t) ? "checked=\"checked\"" : "") />@t.Id <br />
+                    }
+            }
+
+        </p>
+        <p><input type="submit" value="Відредагувати" /></p>
+    </fieldset>
+}

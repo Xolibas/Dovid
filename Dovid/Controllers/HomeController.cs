@@ -25,6 +25,7 @@ namespace Dovid.Controllers
                 return HttpNotFound();
             }
             Train train = context.Trains.Find(id);
+            ViewBag.Stations = context.Stations.ToList();
             if (train != null)
             {
                 return View(train);
@@ -32,9 +33,26 @@ namespace Dovid.Controllers
             return HttpNotFound();
         }
         [HttpPost]
-        public ActionResult Edit(Train train)
+        public ActionResult Edit(Train train, int[] selectedStations)
         {
-            context.Entry(train).State = EntityState.Modified;
+            Train newTrain = context.Trains.Find(train.Id);
+            newTrain.SPos = train.SPos;
+            newTrain.FPos = train.FPos;
+            newTrain.STime = train.STime;
+            newTrain.FTime = train.FTime;
+            newTrain.VCount = train.VCount;
+            newTrain.Price = train.Price;
+            newTrain.Stations.Clear();
+            if (selectedStations != null)
+            {
+                //отримуємо вибрані курси
+                foreach (var c in context.Stations.Where(co =>
+               selectedStations.Contains(co.Id)))
+                {
+                newTrain.Stations.Add(c);
+                }
+            }
+            context.Entry(newTrain).State = EntityState.Modified;
             context.SaveChanges();
             return RedirectToAction("Index");
         }

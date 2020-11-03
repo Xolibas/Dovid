@@ -127,3 +127,4 @@ D:\Лабораторні роботи\Програмування Інтерне
 D:\Лабораторні роботи\Програмування Інтернет\Dovid\Dovid\obj\Debug\Dovid.pdb
 D:\Лабораторні роботи\Програмування Інтернет\Dovid\Dovid\obj\Debug\Dovid.Migrations.DataMigration.resources
 D:\Лабораторні роботи\Програмування Інтернет\Dovid\Dovid\obj\Debug\Dovid.csproj.GenerateResource.cache
+D:\Лабораторні роботи\Програмування Інтернет\Dovid\Dovid\obj\Debug\Dovid.Migrations.DataMigration1.resources

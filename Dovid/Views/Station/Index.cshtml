@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Перелік станцій</title>
+</head>
+<body>
+    <div>
+        <h3>Станції</h3>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><p>Номер станції</p></th>
+                    <th scope="col"><p>Назва</p></th>
+                    <th scope="col"><p>Область розташування</p></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in ViewBag.Stations)
+                {
+                    <tr>
+                        <th scope="row"><p>@s.Id</p></th>
+                        <td><p>@s.Name</p></td>
+                        <td><p>@s.Oblast</p></td>
+                        <td><p><a href="/Station/Edit/@s.Id">Редагувати</a></p></td>
+                        <td><p><a href="/Station/Delete/@s.Id">Видалити</a></p></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Dovid.Models.Station
+<h2>Видалення станції</h2>
+<dl>
+    <dt>Назва</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>Область розташування</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Oblast)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Видалити" />
+}

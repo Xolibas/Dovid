@@ -12,34 +12,38 @@
 <body>
     <div>
         <h3>Розклад потягів</h3>
-        <table>
-            <tr>
-                <td><p>Номер потягу</p></td>
-                <td><p>Час прибуття</p></td>
-                <td><p>Час від’їзду</p></td>
-                <td><p>Початкова позиція</p></td>
-                <td><p>Кінцева позиція</p></td>
-                <td><p>Кількість вагонів</p></td>
-                <td><p>Ціна квитка</p></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            @foreach (var t in ViewBag.Trains)
-            {
-        <tr>
-            <td><p>@t.Id</p></td>
-            <td><p>@t.STime</p></td>
-            <td><p>@t.FTime</p></td>
-            <td><p>@t.SPos</p></td>
-            <td><p>@t.FPos</p></td>
-            <td><p>@t.VCount</p></td>
-            <td><p>@t.Price</p></td>
-            <td><p><a href="/Ticket/Buy/@t.Id">Замовити квиток</a></p></td>
-            <td><p><a href="/Home/Edit/@t.Id">Редагувати</a></p></td>
-            <td><p><a href="/Home/Delete/@t.Id">Видалити</a></p></td>
-        </tr>
-            }
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"><p>Номер потягу</p></th>
+                    <th scope="col"><p>Час прибуття</p></th>
+                    <th scope="col"><p>Час від’їзду</p></th>
+                    <th scope="col"><p>Початкова позиція</p></th>
+                    <th scope="col"><p>Кінцева позиція</p></th>
+                    <th scope="col"><p>Кількість вагонів</p></th>
+                    <th scope="col"><p>Ціна квитка</p></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in ViewBag.Trains)
+                {
+                    <tr>
+                        <th scope="row"><p>@t.Id</p></th>
+                        <td><p>@t.STime</p></td>
+                        <td><p>@t.FTime</p></td>
+                        <td><p>@t.SPos</p></td>
+                        <td><p>@t.FPos</p></td>
+                        <td><p>@t.VCount</p></td>
+                        <td><p>@t.Price</p></td>
+                        <td><p><a href="/Ticket/Buy/@t.Id">Замовити квиток</a></p></td>
+                        <td><p><a href="/Home/Edit/@t.Id">Редагувати</a></p></td>
+                        <td><p><a href="/Home/Delete/@t.Id">Видалити</a></p></td>
+                    </tr>
+                }
+                </tbody>
         </table>
     </div>
 </body>

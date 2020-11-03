@@ -23,5 +23,6 @@ namespace Dovid.Models
         {
             Tickets = new List<Ticket>();
         }
+        public virtual ICollection<Station> Stations{ get; set; }
     }
 }

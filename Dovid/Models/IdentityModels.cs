@@ -22,6 +22,7 @@ namespace Dovid.Models
     {
         public DbSet<Train> Trains { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Station> Stations { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -29,7 +30,14 @@ namespace Dovid.Models
 
         public static ApplicationDbContext Create()
         {
+            DbModelBuilder modelBuilder = new DbModelBuilder();
+            modelBuilder.Entity<Station>().HasMany(c => c.Trains)
+            .WithMany(s => s.Stations)
+            .Map(t => t.MapLeftKey("StationId")
+            .MapRightKey("TrainId")
+            .ToTable("StationTrain"));
             return new ApplicationDbContext();
         }
+
     }
 }
