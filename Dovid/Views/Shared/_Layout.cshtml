@@ -21,11 +21,15 @@
                 @Html.ActionLink("Довідкове бюро", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Перегляд станцій", "Index", "Station")</li>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Перегляд станцій", "Index", "Station")</li>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                {
                     <li>@Html.ActionLink("Додати потяг", "Add", "Add")</li>
                     <li>@Html.ActionLink("Додати станцію", "Add", "Station")</li>
-                </ul>
+                }
+                <li>@Html.Partial("_LoginPartial")</li>
+            </ul>
             </div>
         </div>
     </div>

@@ -11,11 +11,14 @@
 </head>
 <body>
     <div id="content">
+        @Html.ValidationSummary(false)
         <Form method="post" action="">
             <Table>
                 <Tr>
                     <td> <p> Введіть початкову станцію: </p> </td>
-                    <Td> @Html.EditorFor(model => model.SPos) </Td>
+                    <Td>
+                        @Html.EditorFor(model => model.SPos)
+                    </Td>
                 </Tr>
                 <Tr>
                     <td> <p> Введіть кінцеву станцію: </p> </td>

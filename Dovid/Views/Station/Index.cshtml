@@ -25,12 +25,15 @@
             <tbody>
                 @foreach (var s in ViewBag.Stations)
                 {
-                    <tr>
-                        <th scope="row"><p>@s.Id</p></th>
-                        <td><p>@s.Name</p></td>
-                        <td><p>@s.Oblast</p></td>
+                <tr>
+                    <th scope="row"><p>@s.Id</p></th>
+                    <td><p>@s.Name</p></td>
+                    <td><p>@s.Oblast</p></td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
                         <td><p><a href="/Station/Edit/@s.Id">Редагувати</a></p></td>
                         <td><p><a href="/Station/Delete/@s.Id">Видалити</a></p></td>
+                    }
                     </tr>
                 }
             </tbody>

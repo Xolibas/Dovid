@@ -10,7 +10,7 @@ namespace Dovid.Controllers
     public class AddController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Add
+        [Authorize(Roles = "admin")]
         public ActionResult Add()
         {
             return View();
@@ -18,8 +18,8 @@ namespace Dovid.Controllers
         [HttpPost]
         public ActionResult Add(Train train)
         {
-            if (train.SPos == null || train.FPos == null || train.STime == null || train.FTime == null || train.VCount == 0 || train.Price == 0)
-            {
+            if(!ModelState.IsValid)
+            { 
                 Response.Write("<script>window.alert('Заповніть всі поля!');</script>");
                 return View();
             }

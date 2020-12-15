@@ -30,17 +30,20 @@
             <tbody>
                 @foreach (var t in ViewBag.Trains)
                 {
-                    <tr>
-                        <th scope="row"><p>@t.Id</p></th>
-                        <td><p>@t.STime</p></td>
-                        <td><p>@t.FTime</p></td>
-                        <td><p>@t.SPos</p></td>
-                        <td><p>@t.FPos</p></td>
-                        <td><p>@t.VCount</p></td>
-                        <td><p>@t.Price</p></td>
-                        <td><p><a href="/Ticket/Buy/@t.Id">Замовити квиток</a></p></td>
+                <tr>
+                    <th scope="row"><p>@t.Id</p></th>
+                    <td><p>@t.STime</p></td>
+                    <td><p>@t.FTime</p></td>
+                    <td><p>@t.SPos</p></td>
+                    <td><p>@t.FPos</p></td>
+                    <td><p>@t.VCount</p></td>
+                    <td><p>@t.Price</p></td>
+                    <td><p><a href="/Ticket/Buy/@t.Id">Замовити квиток</a></p></td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
                         <td><p><a href="/Home/Edit/@t.Id">Редагувати</a></p></td>
                         <td><p><a href="/Home/Delete/@t.Id">Видалити</a></p></td>
+                    }
                     </tr>
                 }
                 </tbody>

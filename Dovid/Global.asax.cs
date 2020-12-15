@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dovid.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace Dovid
     {
         protected void Application_Start()
         {
+            ModelValidatorProviders.Providers.Add(new MyValidationProvider());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

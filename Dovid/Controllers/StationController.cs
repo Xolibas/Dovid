@@ -18,6 +18,7 @@ namespace Dovid.Controllers
             ViewBag.Stations = stations;
             return View();
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Add()
         {
             return View();
@@ -25,7 +26,7 @@ namespace Dovid.Controllers
         [HttpPost]
         public ActionResult Add(Station station)
         {
-            if (station.Name == null || station.Oblast == null )
+            if (!ModelState.IsValid)
             {
                 Response.Write("<script>window.alert('Заповніть всі поля!');</script>");
                 return View();
@@ -37,6 +38,7 @@ namespace Dovid.Controllers
                 return RedirectToAction("../home/");
             }
         }
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -61,7 +63,6 @@ namespace Dovid.Controllers
             newStation.Trains.Clear();
             if (selectedTrains != null)
             {
-                //отримуємо вибрані курси
                 foreach (var t in db.Trains.Where(co =>
                selectedTrains.Contains(co.Id)))
                 {
@@ -72,6 +73,7 @@ namespace Dovid.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Delete(int id)
         {

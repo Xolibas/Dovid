@@ -17,6 +17,7 @@ namespace Dovid.Controllers
             ViewBag.Trains = trains;
             return View();
         }
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -56,6 +57,7 @@ namespace Dovid.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Delete(int id)
         {

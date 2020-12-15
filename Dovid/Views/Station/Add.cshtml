@@ -11,11 +11,14 @@
 </head>
 <body>
     <div id="content">
+        @Html.ValidationSummary(false)
         <Form method="post" action="">
             <Table>
                 <Tr>
                     <td> <p> Введіть назву станції: </p> </td>
-                    <Td> @Html.EditorFor(model => model.Name) </Td>
+                    <Td>
+                        @Html.EditorFor(model => model.Name)
+                    </Td>
                 </Tr>
                 <Tr>
                     <td> <p> Введіть область розташування станції: </p> </td>
