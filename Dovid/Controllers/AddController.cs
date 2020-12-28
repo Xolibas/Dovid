@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Dovid.Models;
+using Dovid.Filters;
 
 namespace Dovid.Controllers
 {
+    [Culture]
     public class AddController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

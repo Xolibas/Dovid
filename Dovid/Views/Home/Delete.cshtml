@@ -2,34 +2,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model Dovid.Models.Train
-<h2>Видалення потягу</h2>
+<h2>@Resources.Resource.Trdelete</h2>
 <dl>
-    <dt>Початкова позиція</dt>
+    <dt>@Resources.Resource.SPos</dt>
     <dd>
         @Html.DisplayFor(model => model.SPos)
     </dd>
 
-    <dt>Кінцева позиція</dt>
+    <dt>@Resources.Resource.FPos</dt>
     <dd>
         @Html.DisplayFor(model => model.FPos)
     </dd>
 
-    <dt>Час прибуття</dt>
+    <dt>@Resources.Resource.STime</dt>
     <dd>
         @Html.DisplayFor(model => model.STime)
     </dd>
 
-    <dt>Час від’їзду</dt>
+    <dt>@Resources.Resource.FTime</dt>
     <dd>
         @Html.DisplayFor(model => model.FTime)
     </dd>
 
-    <dt>Кількість вагонів</dt>
+    <dt>@Resources.Resource.VCount</dt>
     <dd>
         @Html.DisplayFor(model => model.VCount)
     </dd>
 
-    <dt>Ціна</dt>
+    <dt>@Resources.Resource.Price</dt>
     <dd>
         @Html.DisplayFor(model => model.Price)
     </dd>
@@ -37,5 +37,5 @@
 
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Видалити" />
+    <input type="submit" value=@Resources.Resource.Delete />
 }

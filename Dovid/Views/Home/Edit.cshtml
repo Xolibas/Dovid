@@ -1,47 +1,47 @@
 ﻿@{
-    ViewBag.Title = "Редагування інформації про потяг";
+    ViewBag.Title = Resources.Resource.Rinfotr;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Dovid.Models
 @model Train
-<h2>Потяг № @Model.Id</h2>
+<h2>@Resources.Resource.Train № @Model.Id</h2>
 @using (Html.BeginForm("Edit", "Home", FormMethod.Post))
 {
     <fieldset>
         @Html.HiddenFor(m => m.Id)
         <p>
-            @Html.LabelFor(m => m.SPos, "Звідки")
+            @Html.LabelFor(m => m.SPos, @Resources.Resource.SPos)
             <br />
             @Html.EditorFor(m => m.SPos)
         </p>
         <p>
-            @Html.LabelFor(m => m.FPos, "Куди")
+            @Html.LabelFor(m => m.FPos, @Resources.Resource.FPos)
             <br />
             @Html.EditorFor(m => m.FPos)
 
         </p>
         <p>
-            @Html.LabelFor(m => m.STime, "Час прибуття")
+            @Html.LabelFor(m => m.STime, @Resources.Resource.STime)
             <br />
             @Html.EditorFor(m => m.STime)
         </p>
         <p>
-            @Html.LabelFor(m => m.FTime, "Час від’їзду")
+            @Html.LabelFor(m => m.FTime, @Resources.Resource.FTime)
             <br />
             @Html.EditorFor(m => m.FTime)
         </p>
         <p>
-            @Html.LabelFor(m => m.VCount, "Кількість вагонів")
+            @Html.LabelFor(m => m.VCount, @Resources.Resource.VCount)
             <br />
             @Html.EditorFor(m => m.VCount)
         </p>
         <p>
-            @Html.LabelFor(m => m.Price, "Ціна")
+            @Html.LabelFor(m => m.Price, @Resources.Resource.Price)
             <br />
             @Html.EditorFor(m => m.Price)
         </p>
         <p>
-            @Html.LabelFor(m => m.Stations, "Станції")
+            @Html.LabelFor(m => m.Stations, @Resources.Resource.Stations)
             <br />
             @{
                 List<Station> stations = ViewBag.Stations;
@@ -53,6 +53,6 @@
             }
 
         </p>
-        <p><input type="submit" value="Відредагувати" /></p>
+        <p><input type="submit" value=@Resources.Resource.Edit /></p>
     </fieldset>
 }

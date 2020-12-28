@@ -9,9 +9,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Dovid.Models;
-
+using Dovid.Filters;
 namespace Dovid.Controllers
 {
+    [Culture]
     [Authorize]
     public class AccountController : Controller
     {

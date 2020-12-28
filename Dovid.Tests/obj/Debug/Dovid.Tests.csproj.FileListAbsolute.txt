@@ -1,0 +1,2 @@
+D:\Лабораторні роботи\Програмування Інтернет\Dovida\Dovid\Dovid.Tests\obj\Debug\Dovid.Tests.csprojAssemblyReference.cache
+D:\Лабораторні роботи\Програмування Інтернет\Dovida\Dovid\Dovid.Tests\obj\Debug\Dovid.Tests.csproj.CoreCompileInputs.cache

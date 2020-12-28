@@ -1,27 +1,26 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = Resources.Resource.Dovid;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Диспетчерське бюро</title>
 </head>
 <body>
     <div>
-        <h3>Розклад потягів</h3>
+        <h3>@Resources.Resource.Rozp</h3>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col"><p>Номер потягу</p></th>
-                    <th scope="col"><p>Час прибуття</p></th>
-                    <th scope="col"><p>Час від’їзду</p></th>
-                    <th scope="col"><p>Початкова позиція</p></th>
-                    <th scope="col"><p>Кінцева позиція</p></th>
-                    <th scope="col"><p>Кількість вагонів</p></th>
-                    <th scope="col"><p>Ціна квитка</p></th>
+                    <th scope="col"><p>@Resources.Resource.Ntrain</p></th>
+                    <th scope="col"><p>@Resources.Resource.STime</p></th>
+                    <th scope="col"><p>@Resources.Resource.FTime</p></th>
+                    <th scope="col"><p>@Resources.Resource.SPos</p></th>
+                    <th scope="col"><p>@Resources.Resource.FPos</p></th>
+                    <th scope="col"><p>@Resources.Resource.VCount</p></th>
+                    <th scope="col"><p>@Resources.Resource.Price</p></th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -30,23 +29,23 @@
             <tbody>
                 @foreach (var t in ViewBag.Trains)
                 {
-                <tr>
-                    <th scope="row"><p>@t.Id</p></th>
-                    <td><p>@t.STime</p></td>
-                    <td><p>@t.FTime</p></td>
-                    <td><p>@t.SPos</p></td>
-                    <td><p>@t.FPos</p></td>
-                    <td><p>@t.VCount</p></td>
-                    <td><p>@t.Price</p></td>
-                    <td><p><a href="/Ticket/Buy/@t.Id">Замовити квиток</a></p></td>
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
-                    {
-                        <td><p><a href="/Home/Edit/@t.Id">Редагувати</a></p></td>
-                        <td><p><a href="/Home/Delete/@t.Id">Видалити</a></p></td>
-                    }
+                    <tr>
+                        <th scope="row"><p>@t.Id</p></th>
+                        <td><p>@t.STime</p></td>
+                        <td><p>@t.FTime</p></td>
+                        <td><p>@t.SPos</p></td>
+                        <td><p>@t.FPos</p></td>
+                        <td><p>@t.VCount</p></td>
+                        <td><p>@t.Price</p></td>
+                        <td><p><a href="/Ticket/Buy/@t.Id">@Resources.Resource.BuyTicket</a></p></td>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                        {
+                            <td><p><a href="/Home/Edit/@t.Id">@Resources.Resource.Edit</a></p></td>
+                            <td><p><a href="/Home/Delete/@t.Id">@Resources.Resource.Delete</a></p></td>
+                        }
                     </tr>
                 }
-                </tbody>
+            </tbody>
         </table>
     </div>
 </body>

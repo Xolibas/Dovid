@@ -11,36 +11,33 @@ namespace Dovid.Models
     {
         [ScaffoldColumn(false)]
         public int Id { get; set; }
-        [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Довжина рядка повинна бути від 3 до 50 символів")]
-        [Display(Name = "Початкова позиція")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "SPos")]
+        [Display(Name = "SPos", ResourceType = typeof(Resources.Resource))]
         public string SPos { get; set; }
-        [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Довжина рядка повинна бути від 3 до 50 символів")]
-        [Display(Name = "Кінцева позиція")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "FPos")]
+        [Display(Name = "FPos", ResourceType = typeof(Resources.Resource))]
         public string FPos { get; set; }
-        [Required]
-        [Display(Name = "Час прибуття")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "STime")]
+        [Display(Name = "STime", ResourceType = typeof(Resources.Resource))]
         public DateTime STime { get; set; }
-        [Required]
-        [Display(Name = "Час від’їзду")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "FTime")]
+        [Display(Name = "FTime", ResourceType = typeof(Resources.Resource))]
         public DateTime FTime { get; set; }
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "VCount")]
         [Range(typeof(Int32), "1", "20")]
-        [Display(Name = "Кількість вагонів")]
+        [Display(Name = "VCount", ResourceType = typeof(Resources.Resource))]
         public int VCount { get; set; }
-        [Required]
-        [Display(Name = "Ціна")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "Price")]
+        [Display(Name = "Price", ResourceType = typeof(Resources.Resource))]
         public int Price { get; set; }
         [Required]
-        [Display(Name = "Квитки")]
         public ICollection<Ticket> Tickets { get; set; }
         public Train()
         {
             Tickets = new List<Ticket>();
         }
-        [Display(Name = "Станції")]
-        public virtual ICollection<Station> Stations{ get; set; }
+        [Display(Name = "Stations", ResourceType = typeof(Resources.Resource))]
+        public virtual ICollection<Station> Stations { get; set; }
     }
     public class TrainPropertyValidator : ModelValidator
     {
@@ -56,42 +53,42 @@ namespace Dovid.Models
                 switch (Metadata.PropertyName)
                 {
                     case "SPos":
-                        if (string.IsNullOrEmpty(t.SPos))
+                        if (string.IsNullOrEmpty(t.SPos) || t.SPos.Length < 5 || t.SPos.Length > 50)
                         {
                             return new ModelValidationResult[]{
-                            new ModelValidationResult { MemberName="SPos", Message="Введіть початкову позицію"}
+                            new ModelValidationResult { MemberName="SPos", Message=Resources.Resource.ESpos}
                         };
                         }
                         break;
                     case "FPos":
-                        if (string.IsNullOrEmpty(t.FPos))
+                        if (string.IsNullOrEmpty(t.FPos) || t.SPos.Length < 5 || t.SPos.Length > 50)
                         {
                             return new ModelValidationResult[]{
-                            new ModelValidationResult { MemberName="FPos", Message="Введіть кінцеву позицію"}
+                            new ModelValidationResult { MemberName="FPos", Message=Resources.Resource.EFpos}
                         };
                         }
                         break;
                     case "STime":
-                        if (t.STime.Year<2000 || t.STime.Year>2022)
+                        if (t.STime.Year < 2000 || t.STime.Year > 2022)
                         {
                             return new ModelValidationResult[]{
-                            new ModelValidationResult { MemberName="STime", Message="Введіть час прибуття"}
+                            new ModelValidationResult { MemberName="STime", Message=Resources.Resource.EStime}
                         };
                         }
                         break;
                     case "FTime":
-                        if (t.FTime.Year < 2000 || t.FTime.Year > 2022 || t.STime>t.FTime)
+                        if (t.FTime.Year < 2000 || t.FTime.Year > 2022 || t.STime > t.FTime)
                         {
                             return new ModelValidationResult[]{
-                            new ModelValidationResult { MemberName="STime", Message="Введіть час від’їзду"}
+                            new ModelValidationResult { MemberName="STime", Message=Resources.Resource.EFtime}
                         };
                         }
                         break;
                     case "VCount":
-                        if (t.VCount<5)
+                        if (t.VCount < 5)
                         {
                             return new ModelValidationResult[]{
-                            new ModelValidationResult { MemberName="VCount", Message="Введіть кількість вагонів"}
+                            new ModelValidationResult { MemberName="VCount", Message=Resources.Resource.EVcount}
                         };
                         }
                         break;
@@ -99,7 +96,7 @@ namespace Dovid.Models
                         if (t.Price > 2000 || t.Price < 50)
                         {
                             return new ModelValidationResult[]{
-                            new ModelValidationResult { MemberName="Price", Message="Введіть ціну"}
+                            new ModelValidationResult { MemberName="Price", Message=Resources.Resource.EPrice}
                         };
                         }
                         break;
@@ -138,9 +135,9 @@ namespace Dovid.Models
 
             List<ModelValidationResult> errors = new List<ModelValidationResult>();
 
-            if (t.SPos == "Хмельницький" && t.FPos== "Київ" && t.Price == 1900)
+            if (t.SPos == "Хмельницький" && t.FPos == "Київ" && t.Price == 1900)
             {
-                errors.Add(new ModelValidationResult { MemberName = "", Message = "Неправильний потяг" });
+                errors.Add(new ModelValidationResult { MemberName = "", Message = Resources.Resource.WrongTrain });
             }
             return errors;
         }

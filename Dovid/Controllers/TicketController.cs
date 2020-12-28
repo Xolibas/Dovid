@@ -5,8 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using Dovid.Filters;
 namespace Dovid.Controllers
 {
+    [Culture]
     public class TicketController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
